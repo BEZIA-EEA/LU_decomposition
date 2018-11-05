@@ -6,6 +6,7 @@ int main ()
     int n,i,j,k,p,f;
     double *b,*X,*Y;
     double tmp,tp;
+    cout<<"--- Resolution d'un systeme d'equation lineaire en utilisant la décomposition LU ---"<<endl;
     cout<<"donner la taille de la matrice A : ";
     cin>>n;
     A=new double* [n];
