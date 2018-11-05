@@ -1,2 +1,5 @@
 # LU_decomposition
-linear equations systems solving unid lu decomposition
+linear equations systems solving using LU decomposition
+
+# compling
+g++ 
