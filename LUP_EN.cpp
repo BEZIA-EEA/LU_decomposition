@@ -6,7 +6,8 @@ int main ()
     int n,i,j,k,p,f;
     double *b,*X,*Y;
     double tmp,tp;
-    cout<<"donner la taille de la matrice A : ";
+    cout<<"--- linear equations systems solving using LU decomposition ---"<<endl;
+    cout<<"enter the size of the matrix A : ";
     cin>>n;
     A=new double* [n];
     for (i=0;i<n;i++)
@@ -16,20 +17,20 @@ int main ()
     b=new double[n];
     X=new double[n];
     Y=new double[n];
-    cout<<"vellier saisir la matrice A: "<<endl;
+    cout<<"please enter matrix A elements: "<<endl;
     for (i=0;i<n;i++)
         for(j=0;j<n;j++)
         {
             cout<<"A["<<i<<"]["<<j<<"]=";
             cin>>A[i][j];
         }
-    cout<<"vellier saisir le vecteur b: "<<endl;
+    cout<<"please enter the vector b "<<endl;
     for(i=0;i<n;i++)
         {
             cout<<"b["<<i<<"]=";
             cin>>b[i];
         }
-//afichage
+//display
     for (i=0;i<n;i++)
     {
         cout<<" |  ";
@@ -40,12 +41,12 @@ int main ()
         cout<<" | "<<b[i]<<" | "<<endl<<endl;
 
     }
-//traitement
+//processing
     int u;
     double sm1,sm2;
     for (k=0;k<n-1;k++)
     {
-//calcule du pivot 
+//the pivot calculation 
       sm1=0;
 	for(u=0;u<k;u++)
 	{sm1=sm1+A[k][u]*A[u][k];}
@@ -61,7 +62,7 @@ int main ()
 			      }
 			    tp=b[k];b[k]=b[p];b[p]=tp;
 			    }
-//cacul de la k eme coloun de L      
+//caculation of thr k th colom of  L      
      for(i=k+1;i<n;i++)
       {
 	sm1=0;
@@ -69,7 +70,7 @@ int main ()
 	{sm1=sm1+A[i][u]*A[u][k];}
 	A[i][k]=A[i][k]-sm1;
       }
-//cacul de la k eme coloun de U      
+//caculation of thr k th colom of U      
       for(j=k+1;j<n;j++)
        {
 	sm2=0;
@@ -79,12 +80,12 @@ int main ()
        }
     }
 
-//calcule de l[n][n]   
+//calculation of l[n][n]   
 	sm1=0;
 	for(u=0;u<n-1;u++)
 	{sm1=sm1+A[n-1][u]*A[u][n-1];}
 	A[n-1][n-1]=A[n-1][n-1]-sm1;
-//afichage
+//display
     for (i=0;i<n;i++)
     {
         cout<<" |  ";
